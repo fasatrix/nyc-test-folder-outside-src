@@ -1,0 +1,54 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "End to end tests for Search application",
+  "main": "index.js",
+  "scripts": {
+    "cypress:run": "cypress run",
+    "cypress:open": "cypress open",
+    "cypress:ci": "cypress run --record --key c78b01ce-059e-403b-ac2e-e32095992593"
+  },
+  "author": "Aruna Thennakoon",
+  "devDependencies": {
+    "cypress": "^3.4.1",
+    "cypress-image-snapshot": "^3.1.1",
+    "mocha": "5.2.0",
+    "mochawesome": "3.1.2",
+    "mochawesome-merge": "1.0.7",
+    "mochawesome-report-generator": "4.0.1",
+    "@cypress/code-coverage": "1.10.1",
+    "istanbul-lib-coverage": "2.0.5",
+    "nyc": "14.1.1"
+  },
+  "dependencies": {
+    "@testing-library/cypress": "^4.0.5",
+    "cypress-plugin-snapshots": "^1.2.6",
+    "unfetch": "^4.1.0"
+  },
+  "nyc": {
+    "all": true,
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "reporter": [
+      "lcov",
+      "cobertura",
+      "text-summary",
+      "html"
+    ],
+    "include": [
+      "**/src/**/*.tsx",
+      "**/src/**/*.ts",
+      "**/src/**/*.js"
+    ],
+    "extension": [
+      ".ts",
+      ".js",
+      ".tsx"
+    ],
+    "exclude": [
+      "**/src/**/*.test.tsx",
+      "**/src/**/*.spec.tsx",
+      "**/src/**/*.spec.js",
+      "**/src/**/*.test.js"
+    ]
+  }
+}
